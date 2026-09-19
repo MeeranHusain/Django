@@ -6,5 +6,5 @@ from django.shortcuts import render
 def home(request):
     # fetch data from the Employee tables
     employees = Employee.objects.all()
-    print(employees)   # for debugging purposes, It's output will be displayed in the console where the Django server is running.
-    return HttpResponse("Welcome to the Employee Dashboard!")
+    # print(employees)   # for debugging purposes, It's output will be displayed in the console where the Django server is running.
+    return render(request, 'home.html')
