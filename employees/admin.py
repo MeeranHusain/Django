@@ -15,5 +15,5 @@ class EmployeeAdmin(admin.ModelAdmin):
     list_filter = ["is_active", "department", "manager"]
     list_editable = ["is_active"]
     list_display_links = ["id", "first_name", "last_name"]
-    ordering = ["id"]
+    ordering = ["-id"]
         
