@@ -1,11 +1,90 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Employee List</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'employees/css/style.css' %}">
 </head>
+
 <body>
-    {{ employees }}
+
+    <div class="container mt-5">
+        <h1 class="mb-4">Employee List</h1>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Designation</th>
+                        <th>Salary</th>
+                        <th>Joining Date</th>
+                        <th>Status</th>
+                        <th>Department</th>
+                        <th>Manager</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for emp in employees %}
+                        <tr>
+                            <td>{{ emp.id }}</td>
+                            <td>{{ emp.first_name }}</td>
+                            <td>{{ emp.last_name }}</td>
+                            <td>{{ emp.full_name }}</td>
+                            <td>{{ emp.email }}</td>
+                            <td>{{ emp.designation }}</td>
+                            <td>{{ emp.salary }}</td>
+                            <td>{{ emp.joining_date }}</td>
+                            <td>
+                                {% if emp.is_active %}
+                                    <span class="badge bg-success">Active</span>
+                                {% else %}
+                                    <span class="badge bg-danger">Inactive</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if emp.department %}
+                                    {{ emp.department.dept_name }}
+                                {% else %}
+                                    <span class="text-muted">No Department</span>
+                                {% endif %}
+                            </td>
+
+                            <td>
+                                {% if emp.manager %}
+                                    {{ emp.manager.full_name }}
+                                {% else %}
+                                    <span class="text-muted">No Manager</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+
+                        {% empty %}
+
+                        <tr>
+                            <td colspan="11" class="text-center">
+                                No employees found.
+                            </td>
+                        </tr>
+
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
