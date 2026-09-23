@@ -120,10 +120,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
 
-STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_DIRS = [BASE_DIR / 'Employee_main' / 'static']
-
+STATIC_URL = 'static/' # this is for the url prefix: http://127.0.0.1:8000/static/css/style.css
+STATIC_ROOT = BASE_DIR /'staticfiles' # for production, django will create a new folder called "staticfiles" on the root folder for production use. By running collectstatic command.
+STATICFILES_DIRS = [BASE_DIR / 'Employee_main' / 'static'] # we're telling django to look into this path for any static files
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
 
