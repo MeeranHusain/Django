@@ -9,6 +9,7 @@
     <title>Employee List</title>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -30,6 +31,7 @@
                         <th>Status</th>
                         <th>Department</th>
                         <th>Manager</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
 
@@ -71,6 +73,13 @@
                                     No Manager
                                 </span>
                             {% endif %}
+                        </td>
+                        <td> 
+                            <div class="action-buttons">
+                                <a href=""><i class="fa fa-eye"></i></a>
+                                <a href=""><i class="fa fa-edit" style="color:green;"></i></a>
+                                <a href=""><i class="fa fa-trash" style="color:red;"></i></a> 
+                            </div>
                         </td>
                     </tr>
 
