@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.employee-card {
+  width: 100%;
+  max-width: 650px;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: white;
+  padding: 35px;
+  text-align: center;
+}
+
+.profile-icon {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  background: white;
+  color: #2563eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.card-header h1 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.card-header p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.details {
+  padding: 30px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.label {
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.value {
+  color: #111827;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: right;
+}
+
+.salary {
+  color: #16a34a;
+  font-weight: 700;
+}
+
+.back-btn {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding: 13px;
+  text-align: center;
+  text-decoration: none;
+  background: #2563eb;
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.back-btn:hover {
+  background: #1d4ed8;
+}
+
+@media (max-width: 500px) {
+  .detail-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .value {
+    text-align: left;
+  }
+}

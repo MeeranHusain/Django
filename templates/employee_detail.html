@@ -1,15 +1,64 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Employee Details</title>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/employee_details.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
+
 <body>
-    <h1>Employee Details</h1>
-    <p>Details for Employee ID: {{ id }}</p>
-    <!-- You can add more details about the employee here -->  
-     
-    
+
+    <div class="employee-card">
+        
+        <div class="card-header">
+            <div class="profile-icon">{{ employee.full_name|first|upper }}</div>
+            <h1>{{ employee.full_name }}</h1>
+            <p>Employee ID: #{{ employee.id }}</p>
+        </div>
+
+
+        <div class="details">
+            <div class="detail-row">
+                <span class="label">Full Name</span>
+                <span class="value">
+                    {{ employee.full_name }}
+                </span>
+            </div>
+
+            <div class="detail-row">
+                <span class="label">Email</span>
+                <span class="value">
+                    {{ employee.email }}
+                </span>
+            </div>
+
+            <div class="detail-row">
+                <span class="label">Designation</span>
+                <span class="value">
+                    {{ employee.designation }}
+                </span>
+            </div>
+
+            <div class="detail-row">
+                <span class="label">Salary</span>
+                <span class="value salary">
+                    ₹{{ employee.salary }}
+                </span>
+            </div>
+
+            <a href="/" class="back-btn">
+                ← Back to Employees
+            </a>
+        </div>
+
+    </div>
+
 </body>
 </html>
