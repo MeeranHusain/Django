@@ -47,6 +47,41 @@ body {
     font-size: 15px;
 }
 
+/* ==============================
+   Add Employee Button
+   ============================== */
+
+.add-employee-container {
+    display: flex;
+    justify-content: flex-end;
+    /* margin-bottom: 10px; */
+}
+
+.add-employee-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background-color: #2563eb;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    transition: all 0.2s ease;
+}
+
+.add-employee-btn:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+.add-employee-btn i {
+    font-size: 14px;
+}
+
+
 
 /* ==============================
    Table Container
