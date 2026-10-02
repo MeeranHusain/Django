@@ -30,6 +30,7 @@
             <table class="employee-table">
                 <thead>
                     <tr>
+                        <th>Image</th>
                         <th>ID</th>
                         <th>Full Name</th>
                         <th>Email</th>
@@ -45,6 +46,9 @@
                 <tbody>
                     {% for emp in employees %}
                     <tr>
+                        <td>
+                            <img src="{{ emp.image.url }}" alt="{{ emp.full_name }}" class="employee-list-image" >
+                        </td>
                         <td>{{ emp.id }}</td>
                         <td class="employee-name">{{ emp.full_name }}</td>
                         <td>{{ emp.email }}</td>
@@ -93,7 +97,7 @@
                     {% empty %}
 
                     <tr>
-                        <td colspan="11" class="no-data">
+                        <td colspan="10" class="no-data">
                             No employees found.
                         </td>
                     </tr>
