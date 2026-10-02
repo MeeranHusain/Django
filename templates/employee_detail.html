@@ -18,7 +18,9 @@
     <div class="employee-card">
         
         <div class="card-header">
-            <div class="profile-icon">{{ employee.full_name|first|upper }}</div>
+            <div class="profile-icon">
+                <img src="{{ employee.image.url }}" alt="{{ employee.full_name }} image">
+            </div>
             <h1>{{ employee.full_name }}</h1>
             <p>Employee ID: #{{ employee.id }}</p>
         </div>
