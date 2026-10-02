@@ -10,7 +10,7 @@ class DepartmentAdmin(admin.ModelAdmin):
     
 @admin.register(Employee)
 class EmployeeAdmin(admin.ModelAdmin):
-    list_display = ["id", "first_name", "last_name", "full_name", "email", "designation", "salary", "joining_date", "is_active", "department", "manager"]
+    list_display = ["id", "image", "first_name", "last_name", "full_name", "email", "designation", "salary", "joining_date", "is_active", "department", "manager"]
     search_fields = ["first_name", "last_name", "email", "designation"]
     list_filter = ["is_active", "department", "manager"]
     list_editable = ["is_active"]
