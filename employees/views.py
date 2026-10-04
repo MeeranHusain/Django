@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render
-from . models import Employee
+from . models import Department, Employee
 
 # Create your views here.
 
@@ -16,3 +16,14 @@ def employee_detail(request, id):
     
     except Employee.DoesNotExist:
         return render(request, '404.html', status=404)
+    
+
+def employee_add(request):
+    departments = Department.objects.all()
+    managers = Employee.objects.all()
+
+    context = {
+        'departments': departments,
+        'managers': managers,
+    }
+    return render(request, 'employee_add.html', context)
