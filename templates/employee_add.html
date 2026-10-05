@@ -1,29 +1,221 @@
 {% load static %}
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Employee</title>
-    <!-- <link rel="stylesheet" href="{% static 'css/employee_add.css' %}"> -->
-</head>
 
-<body>
-    <div class="form-container">
-        <!-- Form Header -->
+    <link rel="stylesheet" href="{% static 'css/employee_add.css' %}" />
+  </head>
+
+  <body>
+    <div class="page-wrapper">
+      <div class="form-container">
+        <!-- ================= HEADER ================= -->
+
         <div class="form-header">
+          <div>
             <h1>Add Employee</h1>
             <p>Create a new employee record</p>
+          </div>
+
+          <div class="header-icon">+</div>
         </div>
 
-        <form action="{% url 'employee_add' %}" method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Add Employee</button>
-        </form>
-         
+        <form
+          action="{% url 'employee_add' %}"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          {% csrf_token %}
 
-</body>
+          <!-- ================= PERSONAL INFORMATION ================= -->
+
+          <div class="form-section">
+            <div class="section-header">
+              <div class="section-icon">👤</div>
+
+              <div>
+                <h2>Personal Information</h2>
+                <p>Enter basic employee information</p>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <!-- First Name -->
+              <div class="form-group">
+                <label for="{{ form.first_name.id_for_label }}">
+                  First Name
+                  <span>*</span>
+                </label>
+
+                {{ form.first_name }} {% if form.first_name.errors %}
+                <div class="field-error">{{ form.first_name.errors }}</div>
+                {% endif %}
+              </div>
+
+              <!-- Last Name -->
+              <div class="form-group">
+                <label for="{{ form.last_name.id_for_label }}">
+                  Last Name
+                  <span>*</span>
+                </label>
+
+                {{ form.last_name }} {% if form.last_name.errors %}
+                <div class="field-error">{{ form.last_name.errors }}</div>
+                {% endif %}
+              </div>
+            </div>
+
+            <div class="form-row">
+              <!-- Email -->
+              <div class="form-group">
+                <label for="{{ form.email.id_for_label }}">
+                  Email Address
+                  <span>*</span>
+                </label>
+
+                {{ form.email }} {% if form.email.errors %}
+                <div class="field-error">{{ form.email.errors }}</div>
+                {% endif %}
+              </div>
+
+              <!-- Designation -->
+              <div class="form-group">
+                <label for="{{ form.designation.id_for_label }}">
+                  Designation
+                  <span>*</span>
+                </label>
+
+                {{ form.designation }} {% if form.designation.errors %}
+                <div class="field-error">{{ form.designation.errors }}</div>
+                {% endif %}
+              </div>
+            </div>
+
+            <!-- Image -->
+
+            <div class="form-group image-field">
+              <label for="{{ form.image.id_for_label }}">
+                Employee Image
+              </label>
+
+              {{ form.image }}
+
+              <small>
+                Optional. Default image will be used if no image is selected.
+              </small>
+
+              {% if form.image.errors %}
+              <div class="field-error">{{ form.image.errors }}</div>
+              {% endif %}
+            </div>
+          </div>
+
+          <!-- ================= EMPLOYMENT INFORMATION ================= -->
+
+          <div class="form-section">
+            <div class="section-header">
+              <div class="section-icon">💼</div>
+
+              <div>
+                <h2>Employment Information</h2>
+                <p>Enter employee's job and company details</p>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <!-- Salary -->
+
+              <div class="form-group">
+                <label for="{{ form.salary.id_for_label }}">
+                  Salary
+                  <span>*</span>
+                </label>
+
+                {{ form.salary }} {% if form.salary.errors %}
+                <div class="field-error">{{ form.salary.errors }}</div>
+                {% endif %}
+              </div>
+
+              <!-- Joining Date -->
+
+              <div class="form-group">
+                <label for="{{ form.joining_date.id_for_label }}">
+                  Joining Date
+                  <span>*</span>
+                </label>
+
+                {{ form.joining_date }} {% if form.joining_date.errors %}
+                <div class="field-error">{{ form.joining_date.errors }}</div>
+                {% endif %}
+              </div>
+            </div>
+
+            <div class="form-row">
+              <!-- Department -->
+
+              <div class="form-group">
+                <label for="{{ form.department.id_for_label }}">
+                  Department
+                  <span>*</span>
+                </label>
+
+                {{ form.department }} {% if form.department.errors %}
+                <div class="field-error">{{ form.department.errors }}</div>
+                {% endif %}
+              </div>
+
+              <!-- Manager -->
+
+              <div class="form-group">
+                <label for="{{ form.manager.id_for_label }}"> Manager </label>
+
+                {{ form.manager }} {% if form.manager.errors %}
+                <div class="field-error">{{ form.manager.errors }}</div>
+                {% endif %}
+              </div>
+            </div>
+
+            <!-- Active Employee -->
+
+            <div class="active-wrapper">
+              {{ form.is_active }}
+
+              <label for="{{ form.is_active.id_for_label }}">
+                <strong>Active Employee</strong>
+                <small>Employee is currently working in the organization</small>
+              </label>
+            </div>
+          </div>
+
+          <!-- ================= FORM ERRORS ================= -->
+
+          {% if form.non_field_errors %}
+
+          <div class="form-error-box">
+            <strong>Please correct the following errors:</strong>
+
+            {{ form.non_field_errors }}
+          </div>
+
+          {% endif %}
+
+          <!-- ================= ACTIONS ================= -->
+
+          <div class="form-actions">
+            <a href="/" class="cancel-btn"> Cancel </a>
+
+            <button type="submit" class="submit-btn">
+              <span>+</span>
+              Add Employee
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>
