@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 from . models import Department, Employee
 from . forms import EmployeeForm 
 
@@ -28,16 +28,14 @@ def employee_add(request):
     #     'managers': managers,
     # }
     if request.method == 'POST':
-        # print(request.POST)  # for debugging purposes, It's output will be displayed in the console where the Django server is running. it is also called queryset. A queryset is a collection of database queries that can be filtered, ordered, and manipulated to retrieve specific data from the database. In this case, the queryset is used to retrieve the employee object with the specified id from the Employee model.
         form = EmployeeForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            return render(request, 'employee_detail.html', {'success': True})
+            employee = form.save()
+            return redirect('employee_detail', id=employee.id)
         else:
-            return render(request, 'employee_add123.html', {'form': form, 'error': True})
-        
-    form = EmployeeForm()
-    # print(form)  # for debugging purposes, It's output will be displayed in the console where the Django server is running. it is also called queryset. A queryset is a collection of database queries that can be filtered, ordered, and manipulated to retrieve specific data from the database. In this case, the queryset is used to retrieve the employee object with the specified id from the Employee model.  
+            return render(request, 'employee_add.html', {'form': form, 'error': True})
+       
+    form = EmployeeForm() 
     context = {
         'form': form,
     }  
