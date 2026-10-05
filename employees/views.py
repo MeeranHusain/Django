@@ -27,6 +27,10 @@ def employee_add(request):
     #     'departments': departments,
     #     'managers': managers,
     # }
+    if request.method == 'POST':
+        print(request.POST)  # for debugging purposes, It's output will be displayed in the console where the Django server is running. it is also called queryset. A queryset is a collection of database queries that can be filtered, ordered, and manipulated to retrieve specific data from the database. In this case, the queryset is used to retrieve the employee object with the specified id from the Employee model.
+        form = EmployeeForm(request.POST, request.FILES)
+        
     form = EmployeeForm()
     # print(form)  # for debugging purposes, It's output will be displayed in the console where the Django server is running. it is also called queryset. A queryset is a collection of database queries that can be filtered, ordered, and manipulated to retrieve specific data from the database. In this case, the queryset is used to retrieve the employee object with the specified id from the Employee model.  
     context = {

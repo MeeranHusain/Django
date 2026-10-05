@@ -18,9 +18,9 @@
             <p>Create a new employee record</p>
         </div>
 
-        <form action="">
+        <form action="{% url 'employee_add' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
             {{ form.as_p }}
-
             <button type="submit">Add Employee</button>
         </form>
          
