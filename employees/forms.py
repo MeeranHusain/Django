@@ -6,8 +6,11 @@ class EmployeeForm(forms.ModelForm):
 
     class Meta:
         model = Employee
-        fields = '__all__'
-
+        # fields = '__all__'
+        
+        # Soft-delete field form mein show nahi hogi
+        exclude = ('is_deleted',)   
+        
         widgets = {
 
             'first_name': forms.TextInput(attrs={

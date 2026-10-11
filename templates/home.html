@@ -47,7 +47,11 @@
                     {% for emp in employees %}
                     <tr>
                         <td>
-                            <img src="{{ emp.image.url }}" alt="{{ emp.full_name }}" class="employee-list-image" >
+                            {% if emp.image %}
+                                <img src="{{ emp.image.url }}" alt="{{ emp.full_name }}" class="employee-list-image">
+                            {% else %}
+                                <img src="{% static 'images/default.png' %}" alt="{{ emp.full_name }}" class="employee-list-image">
+                            {% endif %}
                         </td>
                         <td>{{ emp.id }}</td>
                         <td class="employee-name">{{ emp.full_name }}</td>
@@ -99,7 +103,7 @@
                                 </a>
 
                                 <!-- Delete Employee -->
-                                <a href="" title="Delete Employee">
+                                <a href="{% url 'employee_delete' id=emp.id %}" title="Delete Employee">
                                     <i class="fa fa-trash" style="color:red;"></i>
                                 </a>
                             </div>

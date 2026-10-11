@@ -21,7 +21,7 @@ class Employee(models.Model):
     is_active = models.BooleanField(default=True)
     department = models.ForeignKey(Department, on_delete=models.SET_NULL, blank=True, null=True)
     manager = models.ForeignKey("self", on_delete=models.SET_NULL, blank=True, null=True)
-        
+    is_deleted = models.BooleanField(default=False)  # Soft delete flag
         
     def __str__(self):
         return f"{self.first_name} {self.last_name} ({self.designation})"
