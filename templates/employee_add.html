@@ -6,7 +6,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Add Employee</title>
+    <!-- <title>Add Employee</title> -->
+     <title>{{ page_title }}</title>
 
     <link rel="stylesheet" href="{% static 'css/employee_add.css' %}" />
   </head>
@@ -18,14 +19,24 @@
 
         <div class="form-header">
           <div>
-            <h1>Add Employee</h1>
-            <p>Create a new employee record</p>
+            <h1>{{ page_title }}</h1>
+            <p>
+                {% if employee %}
+                    Update employee information
+                {% else %}
+                    Create a new employee record
+                {% endif %}
+            </p>
           </div>
 
-          <div class="header-icon">+</div>
+          <!-- <div class="header-icon">+</div> -->
+            <div class="header-icon">
+              {% if employee %}✎{% else %}+{% endif %}
+            </div>
         </div>
 
-        <form action="{% url 'employee_add' %}" method="POST" enctype="multipart/form-data" >
+        <!-- ================= FORM ================= -->
+        <form method="POST" enctype="multipart/form-data">  
           {% csrf_token %}
 
           <!-- ================= PERSONAL INFORMATION ================= -->
@@ -203,15 +214,17 @@
           <!-- ================= ACTIONS ================= -->
 
           <div class="form-actions">
-            <a href="/" class="cancel-btn"> Cancel </a>
+            <a href="/" class="cancel-btn"> Cancel </a> 
 
             <button type="submit" class="submit-btn">
-              <span>+</span>
-              Add Employee
+              <span>{% if employee %}✓{% else %}+{% endif %}</span>
+              {{ button_text }}
             </button>
+
           </div>
         </form>
       </div>
     </div>
-  </body>
+
+</body>
 </html>

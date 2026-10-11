@@ -85,13 +85,26 @@
                                 </span>
                             {% endif %}
                         </td>
-                        <td> 
+                        <td>
                             <div class="action-buttons">
-                                <a href="{% url 'employee_detail' emp.id %}"><i class="fa fa-eye"></i></a>
-                                <a href=""><i class="fa fa-edit" style="color:green;"></i></a>
-                                <a href=""><i class="fa fa-trash" style="color:red;"></i></a> 
+
+                                <!-- View Employee -->
+                                <a href="{% url 'employee_detail' id=emp.id %}" title="View Employee">
+                                    <i class="fa fa-eye"></i>
+                                </a>
+
+                                <!-- Edit Employee -->
+                                <a href="{% url 'employee_edit' id=emp.id %}" title="Edit Employee">
+                                    <i class="fa fa-edit" style="color:green;"></i>
+                                </a>
+
+                                <!-- Delete Employee -->
+                                <a href="" title="Delete Employee">
+                                    <i class="fa fa-trash" style="color:red;"></i>
+                                </a>
                             </div>
                         </td>
+
                     </tr>
 
                     {% empty %}

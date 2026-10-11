@@ -4,6 +4,7 @@ from . forms import EmployeeForm
 
 # Create your views here.
 
+# View to display the details of a specific employee based on their ID. It retrieves the employee object from the database and renders the 'employee_detail.html' template with the employee's information. If the employee does not exist, it renders a 404 error page.
 def employee_detail(request, id):
     try:
         # employee = get_object_or_404(Employee, id=id)
@@ -18,7 +19,8 @@ def employee_detail(request, id):
     except Employee.DoesNotExist:
         return render(request, '404.html', status=404)
     
-
+    
+# Add Employee
 def employee_add(request):
     # departments = Department.objects.all()
     # managers = Employee.objects.all()
@@ -32,11 +34,38 @@ def employee_add(request):
         if form.is_valid():
             employee = form.save()
             return redirect('employee_detail', id=employee.id)
-        else:
-            return render(request, 'employee_add.html', {'form': form, 'error': True})
-       
-    form = EmployeeForm() 
+    
+    else:
+        form = EmployeeForm() 
+            
     context = {
         'form': form,
+        'page_title': 'Add Employee',
+        'button_text': 'Add Employee',
     }  
+    return render(request, 'employee_add.html', context)
+
+
+# Edit Employee
+def employee_edit(request, id):
+
+    employee = get_object_or_404(Employee, id=id)
+
+    if request.method == 'POST':
+        form = EmployeeForm(request.POST,request.FILES,instance=employee)
+
+        if form.is_valid():
+            form.save()
+            return redirect('employee_detail', id=employee.id)
+    
+    else:
+        form = EmployeeForm(instance=employee)
+
+    context = {
+        'form': form,
+        'employee': employee,
+        'page_title': 'Edit Employee',
+        'button_text': 'Save Changes',
+    }
+
     return render(request, 'employee_add.html', context)
