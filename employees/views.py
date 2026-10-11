@@ -43,7 +43,7 @@ def employee_add(request):
         'page_title': 'Add Employee',
         'button_text': 'Add Employee',
     }  
-    return render(request, 'employee_add.html', context)
+    return render(request, 'employee_form.html', context)
 
 
 # Edit Employee
@@ -68,4 +68,4 @@ def employee_edit(request, id):
         'button_text': 'Save Changes',
     }
 
-    return render(request, 'employee_add.html', context)
+    return render(request, 'employee_form.html', context)
