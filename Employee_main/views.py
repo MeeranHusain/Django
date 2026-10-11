@@ -5,7 +5,7 @@ from django.shortcuts import render
 
 def home(request):
     # fetch data from the Employee tables
-    employees = Employee.objects.all()
+    employees = Employee.objects.filter(is_deleted=False)  # Fetch all employee objects that are not marked as deleted from the Employee model.
     context = {
         'employees': employees,
     }
