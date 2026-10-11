@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Delete Employee</title>
+</head>
+<body>
+    <h2>Delete Employee</h2>
+
+    <p>
+        Are you sure you want to delete
+        <strong>{{ employee.full_name }}</strong>?
+    </p>
+
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Yes, Delete</button>
+        <a href="{% url 'employee_detail' id=employee.id %}">
+            Cancel
+        </a>
+    </form>
+</body>
+</html>
