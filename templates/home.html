@@ -93,17 +93,17 @@
                             <div class="action-buttons">
 
                                 <!-- View Employee -->
-                                <a href="{% url 'employee_detail' id=emp.id %}" title="View Employee">
+                                <a href="{% url 'employee_detail' id=emp.id %}" class="action-btn view-btn" aria-label="View Employee" title="View Employee">
                                     <i class="fa fa-eye"></i>
                                 </a>
 
                                 <!-- Edit Employee -->
-                                <a href="{% url 'employee_edit' id=emp.id %}" title="Edit Employee">
-                                    <i class="fa fa-edit" style="color:green;"></i>
+                                <a href="{% url 'employee_edit' id=emp.id %}" class="action-btn edit-btn" aria-label="Edit Employee" title="Edit Employee">
+                                    <i class="fa fa-edit"></i>
                                 </a>
 
                                 <!-- Delete Employee -->
-                                <button type="button" class="delete-btn" data-id="{{ emp.id }}" data-name="{{ emp.full_name }}" data-url="{% url 'employee_delete' id=emp.id %}" title="Delete Employee"> 
+                                <button type="button" class="action-btn delete-btn" data-id="{{ emp.id }}" data-name="{{ emp.full_name }}" data-url="{% url 'employee_delete' id=emp.id %}" aria-label="Delete Employee" title="Delete Employee">
                                     <i class="fa fa-trash"></i>
                                 </button>
 
