@@ -1,6 +1,9 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from . models import Department, Employee
 from . forms import EmployeeForm 
+from django.http import JsonResponse
+from django.views.decorators.http import require_POST
+
 
 # Create your views here.
 
@@ -72,13 +75,28 @@ def employee_edit(request, id):
 
 
 # Soft Delete Employee
+# def employee_delete(request, id):
+#     employee = get_object_or_404(Employee, id=id, is_deleted=False)
+
+#     if request.method == 'POST':
+#         employee.is_deleted = True
+#         employee.save(update_fields=['is_deleted'])
+#         return redirect('home')
+
+#     return render(request,'employee_confirm_delete.html',{'employee': employee})
+
+
+
+# Soft Delete Employee using AJAX
+@require_POST
 def employee_delete(request, id):
+
     employee = get_object_or_404(Employee, id=id, is_deleted=False)
+    employee.is_deleted = True
+    employee.save(update_fields=['is_deleted'])
 
-    if request.method == 'POST':
-        employee.is_deleted = True
-        employee.save(update_fields=['is_deleted'])
-        return redirect('home')
-
-    return render(request,'employee_confirm_delete.html',{'employee': employee})
-
+    return JsonResponse({
+        'success': True,
+        'message': 'Employee deleted successfully.'
+    })
+    

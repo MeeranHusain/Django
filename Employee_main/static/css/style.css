@@ -232,3 +232,176 @@ body {
     object-fit: cover;
     display: block;
 }
+
+
+/* =========================================
+   DELETE CONFIRMATION MODAL
+========================================= */
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+
+    background: rgba(15, 23, 42, 0.60);
+    backdrop-filter: blur(3px);
+
+    z-index: 99999;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+/* Modal Card */
+.modal-box {
+    width: 100%;
+    max-width: 420px;
+
+    background: #ffffff;
+    border-radius: 16px;
+
+    padding: 32px 28px;
+
+    text-align: center;
+
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25);
+
+    animation: deleteModalShow 0.22s ease-out;
+}
+
+/* Delete Icon */
+.modal-icon {
+    width: 68px;
+    height: 68px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #fee2e2;
+    color: #dc2626;
+
+    font-size: 27px;
+}
+
+/* Heading */
+.modal-box h2 {
+    margin: 0 0 12px;
+
+    color: #111827;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+/* Description */
+.modal-box p {
+    margin: 0;
+
+    color: #6b7280;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.modal-box #employeeName {
+    color: #111827;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.modal-box .warning-text {
+    margin-top: 8px;
+
+    color: #dc2626;
+    font-size: 12px;
+}
+
+/* Modal Buttons */
+.modal-box .modal-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+    margin-top: 26px;
+}
+
+.modal-box .cancel-btn,
+.modal-box .confirm-btn {
+    min-height: 44px;
+    padding: 0 20px;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+/* Cancel */
+.modal-box .cancel-btn {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.modal-box .cancel-btn:hover {
+    background: #e5e7eb;
+}
+
+/* Confirm Delete */
+.modal-box .confirm-btn {
+    background: #dc2626;
+    color: #ffffff;
+}
+
+.modal-box .confirm-btn:hover {
+    background: #b91c1c;
+}
+
+.modal-box .confirm-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Animation */
+@keyframes deleteModalShow {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+    .modal-box {
+        padding: 26px 20px;
+    }
+
+    .modal-box h2 {
+        font-size: 21px;
+    }
+
+    .modal-box .modal-actions {
+        flex-direction: column-reverse;
+    }
+
+    .modal-box .cancel-btn,
+    .modal-box .confirm-btn {
+        width: 100%;
+    }
+}
