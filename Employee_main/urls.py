@@ -19,6 +19,7 @@ from django.urls import include, path
 from . import views 
 from django.conf import settings
 from django.conf.urls.static import static
+from accounts import views as accounts_views
 
 
 urlpatterns = [
@@ -26,6 +27,8 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('home/', views.home, name='home'),
     path('employee/', include('employees.urls')),
+    
+    path('register/', accounts_views.register, name='register'),
 ]
 
 
