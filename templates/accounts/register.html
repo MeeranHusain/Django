@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +10,8 @@
     <title>Create Account</title>
 
     <link rel="stylesheet" href="{% static 'css/account_css/register.css' %}">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+ 
 </head>
 <body>
     <main class="register-page">
@@ -91,7 +94,7 @@
                 
                 </div>
 
-                
+
                 <!-- Submit -->
                 <button type="submit" class="register-btn">Create Account<span aria-hidden="true">&rarr;</span>
                 </button>
