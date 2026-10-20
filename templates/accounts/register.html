@@ -43,6 +43,8 @@
                     {% for error in form.username.errors %}
                         <small class="field-error">{{ error }}</small>
                     {% endfor %}
+
+                    <div class="help-text">Choose a unique username for your account.</div>
                 </div>
 
 
@@ -82,11 +84,14 @@
                     {% for error in form.password2.errors %}
                         <small class="field-error">{{ error }}</small>
                     {% endfor %}
+
+
+                    <div class="help-text">Re-enter the same password to confirm it.</div>
+                    <p id="confirm-status" class="validation-message" aria-live="polite"></p>
+                
                 </div>
 
-
-
-
+                
                 <!-- Submit -->
                 <button type="submit" class="register-btn">Create Account<span aria-hidden="true">&rarr;</span>
                 </button>
