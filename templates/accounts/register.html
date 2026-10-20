@@ -1,1 +1,113 @@
-hello
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+
+    <link rel="stylesheet" href="{% static 'css/account_css/register.css' %}">
+</head>
+<body>
+    <main class="register-page">
+        <section class="register-card">
+            <!-- Header -->
+            <div class="register-header">
+                <div class="brand-icon">
+                    <span>+</span>
+                </div>
+                <h1>Create Account</h1>
+                <p>Join us by creating your account</p>
+            </div>
+
+
+            <!-- Registration Form -->
+            <form method="POST" action="{% url 'register' %}">
+                {% csrf_token %}
+
+                <!-- General Errors -->
+                {% if form.non_field_errors %}
+                    <div class="error-box">
+                        {{ form.non_field_errors }}
+                    </div>
+                {% endif %}
+
+
+                <!-- Username -->
+                <div class="form-group">
+                    <label for="{{ form.username.id_for_label }}">Username</label>
+                    {{ form.username }}
+
+                    {% for error in form.username.errors %}
+                        <small class="field-error">{{ error }}</small>
+                    {% endfor %}
+                </div>
+
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="{{ form.password1.id_for_label }}">Password</label>
+
+                    <div class="password-wrapper">
+                        {{ form.password1 }}
+                        <button type="button" class="toggle-password" onclick="togglePassword('{{ form.password1.id_for_label }}', this)" aria-label="Show password">
+                            👁️
+                        </button>
+                    </div>
+
+                    {% for error in form.password1.errors %}
+                        <small class="field-error">{{ error }}</small>
+                    {% endfor %}
+
+                    {% if form.password1.help_text %}
+                        <div class="help-text">{{ form.password1.help_text|safe }}</div>
+                    {% endif %}
+                </div>
+
+
+
+                <!-- Confirm Password -->
+                <div class="form-group">
+                    <label for="{{ form.password2.id_for_label }}">Confirm Password</label>
+
+                    <div class="password-wrapper">
+                        {{ form.password2 }}
+                        <button type="button" class="toggle-password" onclick="togglePassword('{{ form.password2.id_for_label }}', this)" aria-label="Show password">
+                            👁️
+                        </button>
+                    </div>
+
+                    {% for error in form.password2.errors %}
+                        <small class="field-error">{{ error }}</small>
+                    {% endfor %}
+                </div>
+
+
+
+
+                <!-- Submit -->
+                <button type="submit" class="register-btn">Create Account<span aria-hidden="true">&rarr;</span>
+                </button>
+
+            </form>
+
+            <!-- Footer -->
+            <div class="register-footer">
+                <p>Secure account registration</p>
+            </div>
+
+        </section>
+
+        <p class="page-footer">
+            Account Management System
+        </p>
+
+    </main>
+
+
+    <script src="{% static 'js/accounts_js/register.js' %}"></script>
+
+</body>
+</html>
