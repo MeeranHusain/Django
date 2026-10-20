@@ -314,3 +314,71 @@ body {
     outline: 2px solid #2563eb;
 }
 
+
+/* =====================================
+   CRISPY FORMS + BOOTSTRAP COMPATIBILITY
+===================================== */
+
+/* Consistent input styling */
+.register-card .form-control {
+    width: 100%;
+    min-height: 46px;
+    border: 1px solid #d1d5db;
+    border-radius: 9px;
+    font-size: 14px;
+    color: #111827;
+}
+
+.register-card .form-control:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+/* Password inputs */
+.password-wrapper input.form-control {
+    padding-right: 45px;
+}
+
+/* Django/Crispy validation errors */
+.register-card .invalid-feedback,
+.register-card .field-error {
+    display: block;
+    margin-top: 7px;
+    color: #dc2626;
+    font-size: 12px;
+}
+
+/* Live password validation */
+.validation-message {
+    margin-top: 6px;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.validation-message:empty {
+    display: none;
+}
+
+.error-message {
+    color: #dc2626;
+}
+
+.success-message {
+    color: #15803d;
+}
+
+/* Help text */
+.register-card .help-text {
+    margin-top: 8px;
+    color: #6b7280;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.register-card .help-text ul {
+    padding-left: 17px;
+}
+
+.register-card .help-text li {
+    margin-bottom: 3px;
+}
