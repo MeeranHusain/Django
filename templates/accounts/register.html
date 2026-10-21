@@ -78,11 +78,7 @@
                 <div class="password-wrapper">
                     {{ form.password1 }}
 
-                    <button
-                        type="button"
-                        class="toggle-password"
-                        onclick="togglePassword('{{ form.password1.id_for_label }}', this)"
-                        aria-label="Show password">
+                    <button type="button" class="toggle-password" onclick="togglePassword('{{ form.password1.id_for_label }}', this)" aria-label="Show password">
                         👁️
                     </button>
                 </div>
@@ -97,9 +93,7 @@
                     </div>
                 {% endif %}
 
-                <p id="password-status"
-                   class="validation-message"
-                   aria-live="polite"></p>
+                <p id="password-status" class="validation-message" aria-live="polite"></p>
             </div>
 
             <!-- Confirm Password -->
@@ -111,11 +105,7 @@
                 <div class="password-wrapper">
                     {{ form.password2 }}
 
-                    <button
-                        type="button"
-                        class="toggle-password"
-                        onclick="togglePassword('{{ form.password2.id_for_label }}', this)"
-                        aria-label="Show password">
+                    <button type="button" class="toggle-password" onclick="togglePassword('{{ form.password2.id_for_label }}', this)" aria-label="Show password">
                         👁️
                     </button>
                 </div>
@@ -128,9 +118,7 @@
                     Re-enter the same password to confirm it.
                 </div>
 
-                <p id="confirm-status"
-                   class="validation-message"
-                   aria-live="polite"></p>
+                <p id="confirm-status" class="validation-message" aria-live="polite"></p>
             </div>
 
             <!-- Submit -->
