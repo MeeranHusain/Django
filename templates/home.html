@@ -15,9 +15,23 @@
 <body>
     <div class="container">
         <div class="page-header">
-            <h1>Employee List</h1>
-            <p>Manage and view all employees</p>
+            <div>
+                <h1>Employee List</h1>
+                <p>Manage and view all employees</p>
+            </div>
+
+            <div class="auth-buttons">
+                <a href="{}" class="auth-btn login-btn">
+                    <i class="fa fa-sign-in"></i> Login
+                </a>
+
+                <a href="{% url 'register' %}" class="auth-btn register-btn">
+                    <i class="fa fa-user-plus"></i> Register
+                </a>
+            </div>
         </div>
+
+
 
         <div class="add-employee-container">
             <a href="{% url 'employee_add' %}" class="add-employee-btn">
