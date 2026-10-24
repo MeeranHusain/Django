@@ -24,7 +24,10 @@
                 <div class="auth-buttons">
                     <span class="user-info">
                         <i class="fa fa-user-circle"></i>
-                        {{ user.username }} ({{ user.email }})
+                        {{ user.username }} 
+                        {% if user.email %} 
+                            ({{ user.email }}) 
+                        {% endif %}
                     </span>
 
                     <form method="POST" action="{% url 'logout' %}">

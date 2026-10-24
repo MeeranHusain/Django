@@ -290,3 +290,10 @@ body {
         font-size: 13px;
     }
 }
+
+/* Registration Success - Blue Notification */
+.toast-alert.register-notification {
+    background: #dbeafe;
+    color: #1e40af;
+    border: 1px solid #93c5fd;
+}

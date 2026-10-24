@@ -9,8 +9,8 @@ def register(request):
 
         if form.is_valid():
             form.save()
-            messages.success(request, "Your account has been created successfully!")
-            return redirect('home')
+            messages.success(request,"Your account has been created successfully!",extra_tags="register-notification")
+            return redirect('login')
     else:
         form = UserCreationForm()
 
