@@ -30,7 +30,7 @@ urlpatterns = [
     
     path('register/', accounts_views.register, name='register'),
     path('login/', accounts_views.login, name='login'),
-    
+    path('logout/', accounts_views.logout, name='logout'),
 ]
 
 

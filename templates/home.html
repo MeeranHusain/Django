@@ -24,11 +24,10 @@
                 <div class="auth-buttons">
                     <span class="user-info">
                         <i class="fa fa-user-circle"></i>
-                        {{ user.username }} {% if user.email %} ({{ user.email }})
-                        {% endif %}
+                        {{ user.username }} ({{ user.email }})
                     </span>
 
-                    <form method="POST" action="{}">
+                    <form method="POST" action="{% url 'logout' %}">
                         {% csrf_token %}
                         <button type="submit" class="auth-btn logout-btn">
                             <i class="fa fa-sign-out"></i> Logout
@@ -45,6 +44,17 @@
                         <i class="fa fa-user-plus"></i> Register
                     </a>
                 </div>
+            {% endif %}
+        </div>
+
+        <!-- Notifications: Header ke bahar -->
+        <div class="messages-container">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
             {% endif %}
         </div>
 
