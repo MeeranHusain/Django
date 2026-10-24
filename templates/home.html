@@ -20,15 +20,32 @@
                 <p>Manage and view all employees</p>
             </div>
 
-            <div class="auth-buttons">
-                <a href="{% url 'login' %}" class="auth-btn login-btn">
-                    <i class="fa fa-sign-in"></i> Login
-                </a>
+            {% if user.is_authenticated %}
+                <div class="auth-buttons">
+                    <span class="user-info">
+                        <i class="fa fa-user-circle"></i>
+                        {{ user.username }} {% if user.email %} ({{ user.email }})
+                        {% endif %}
+                    </span>
 
-                <a href="{% url 'register' %}" class="auth-btn register-btn">
-                    <i class="fa fa-user-plus"></i> Register
-                </a>
-            </div>
+                    <form method="POST" action="{}">
+                        {% csrf_token %}
+                        <button type="submit" class="auth-btn logout-btn">
+                            <i class="fa fa-sign-out"></i> Logout
+                        </button>
+                    </form>
+                </div>
+            {% else %}
+                <div class="auth-buttons">
+                    <a href="{% url 'login' %}" class="auth-btn login-btn">
+                        <i class="fa fa-sign-in"></i> Login
+                    </a>
+
+                    <a href="{% url 'register' %}" class="auth-btn register-btn">
+                        <i class="fa fa-user-plus"></i> Register
+                    </a>
+                </div>
+            {% endif %}
         </div>
 
 
