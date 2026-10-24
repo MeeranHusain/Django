@@ -15,6 +15,18 @@
     <link rel="stylesheet" href="{% static 'css/account_css/login.css' %}">
 </head>
 <body>
+    
+{% if messages %}
+    {% for message in messages %}
+        {% if 'logout-notification' in message.tags %}
+            <div class="toast-alert logout-notification" role="status">
+                <i class="fa fa-sign-out"></i>
+                <span>{{ message }}</span>
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
 
 <main class="login-page">
 

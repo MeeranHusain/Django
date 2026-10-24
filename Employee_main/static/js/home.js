@@ -114,19 +114,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     });
 
-
 document.addEventListener('DOMContentLoaded', function () {
-    const notifications = document.querySelectorAll('.messages-container .alert');
-
-    notifications.forEach(function (notification) {
+    document.querySelectorAll('.toast-alert').forEach(function (alert) {
         setTimeout(function () {
-            notification.style.transition = 'opacity 0.5s ease';
-            notification.style.opacity = '0';
+            alert.classList.add('hide');
 
             setTimeout(function () {
-                notification.remove();
-            }, 500);
-
+                alert.remove();
+            }, 400);
         }, 3000);
     });
 });

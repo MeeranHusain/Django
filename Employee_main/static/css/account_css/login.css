@@ -228,3 +228,65 @@ body {
     cursor: pointer;
     font-size: 18px;
 }
+
+
+/* Floating Logout Notification */
+.toast-alert {
+    position: fixed;
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    width: max-content;
+    max-width: calc(100% - 32px);
+    padding: 13px 20px;
+
+    border-radius: 10px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    animation: toastAppear 0.35s ease both;
+}
+
+.toast-alert.logout-notification {
+    background: #ffedd5;
+    color: #9a3412;
+    border: 1px solid #fdba74;
+}
+
+.toast-alert.hide {
+    animation: toastDisappear 0.4s ease forwards;
+}
+
+@keyframes toastAppear {
+    from {
+        opacity: 0;
+        margin-top: -8px;
+    }
+    to {
+        opacity: 1;
+        margin-top: 0;
+    }
+}
+
+@keyframes toastDisappear {
+    to {
+        opacity: 0;
+        margin-top: -8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .toast-alert {
+        top: 14px;
+        padding: 12px 15px;
+        font-size: 13px;
+    }
+}

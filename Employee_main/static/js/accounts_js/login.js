@@ -28,3 +28,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     wrapper.appendChild(toggleButton);
 });
+
+
+
+// Auto-hide notifications after 3 seconds
+document.querySelectorAll('.toast-alert').forEach(function (toast) {
+    setTimeout(function () {
+        toast.classList.add('hide');
+
+        setTimeout(function () {
+            toast.remove();
+        }, 400);
+    }, 3000);
+});

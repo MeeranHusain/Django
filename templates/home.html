@@ -47,16 +47,19 @@
             {% endif %}
         </div>
 
-        <!-- Notifications: Header ke bahar -->
-        <div class="messages-container">
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="alert alert-{{ message.tags }}">
-                        {{ message }}
+    
+        <!-- Floating Notifications -->
+        {% if messages %}
+            {% for message in messages %}
+                {% if 'login-notification' in message.tags %}
+                    <div class="toast-alert login-notification" role="status">
+                        <i class="fa fa-check-circle"></i>
+                        <span>{{ message }}</span>
                     </div>
-                {% endfor %}
-            {% endif %}
-        </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
 
 
 
