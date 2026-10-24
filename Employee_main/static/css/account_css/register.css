@@ -382,3 +382,28 @@ body {
 .register-card .help-text li {
     margin-bottom: 3px;
 }
+
+
+/* Login Link */
+.login-prompt {
+    margin-top: 22px;
+    text-align: center;
+}
+
+.login-prompt p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.login-prompt a {
+    color: #2563eb;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 4px;
+}
+
+.login-prompt a:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
