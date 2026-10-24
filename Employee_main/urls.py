@@ -29,6 +29,8 @@ urlpatterns = [
     path('employee/', include('employees.urls')),
     
     path('register/', accounts_views.register, name='register'),
+    path('login/', accounts_views.login, name='login'),
+    
 ]
 
 
