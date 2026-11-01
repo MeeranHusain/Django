@@ -142,3 +142,5 @@ MAILERS = {
 MEDIA_URL = '/media/'  # URL prefix for media files
 MEDIA_ROOT = BASE_DIR / 'media'  # Directory where uploaded media files will be stored
 # MEDIAFILES_DIRS = [BASE_DIR / 'Employee_main' / 'media']  # Additional directories for media files
+
+LOGIN_URL = '/login/' # This setting specifies the URL where users will be redirected if they try to access a view that requires authentication and they are not logged in. In this case, if a user tries to access a protected view without being authenticated, they will be redirected to the login page at '/login/'.

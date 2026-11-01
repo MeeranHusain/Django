@@ -2,7 +2,9 @@
 from django.http import HttpResponse
 from employees.models import Employee
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def home(request):
     # fetch data from the Employee tables
     employees = Employee.objects.filter(is_deleted=False)  # Fetch all employee objects that are not marked as deleted from the Employee model.
