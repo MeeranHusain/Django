@@ -1,46 +1,52 @@
-
-<svg xmlns="http://www.w3.org/2000/svg"
-     width="1200" height="240" viewBox="0 0 1200 240">
-
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-labelledby="title desc">
+  <title id="title">Employee Management System</title>
+  <desc id="desc">A modern purple, blue and cyan gradient banner for a Python Django employee management project.</desc>
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#7C3AED"/>
-      <stop offset="50%" stop-color="#2563EB"/>
-      <stop offset="100%" stop-color="#06B6D4"/>
+    <linearGradient id="background" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6D28D9"/>
+      <stop offset="48%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#0891B2"/>
     </linearGradient>
-
-    <linearGradient id="glow" x1="100%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#EC4899"/>
-      <stop offset="100%" stop-color="#8B5CF6"/>
+    <linearGradient id="pinkGlow" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F472B6" stop-opacity=".9"/>
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"/>
     </linearGradient>
+    <linearGradient id="cyanGlow" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22D3EE" stop-opacity=".7"/>
+      <stop offset="100%" stop-color="#22D3EE" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="softBlur" x="-30%" y="-50%" width="160%" height="200%">
+      <feGaussianBlur stdDeviation="34"/>
+    </filter>
+    <clipPath id="rounded">
+      <rect width="1200" height="300" rx="24"/>
+    </clipPath>
   </defs>
 
-  <rect width="1200" height="240" rx="20" fill="#111827"/>
+  <g clip-path="url(#rounded)">
+    <rect width="1200" height="300" fill="#101827"/>
+    <ellipse cx="170" cy="35" rx="390" ry="190" fill="url(#background)" filter="url(#softBlur)"/>
+    <ellipse cx="1060" cy="270" rx="370" ry="190" fill="url(#pinkGlow)" filter="url(#softBlur)"/>
+    <ellipse cx="600" cy="-20" rx="360" ry="120" fill="url(#cyanGlow)" filter="url(#softBlur)"/>
 
-  <ellipse cx="180" cy="20" rx="350" ry="150" fill="url(#bg)"/>
-  <ellipse cx="1050" cy="230" rx="350" ry="150" fill="url(#glow)" opacity=".8"/>
+    <path d="M-30 224 C170 70 350 90 520 190 S860 280 1230 82" fill="none" stroke="#FFFFFF" stroke-opacity=".30" stroke-width="3"/>
+    <path d="M-30 252 C170 98 350 118 520 218 S860 308 1230 110" fill="none" stroke="#FFFFFF" stroke-opacity=".15" stroke-width="2"/>
+    <path d="M-30 196 C170 42 350 62 520 162 S860 252 1230 54" fill="none" stroke="#A5F3FC" stroke-opacity=".18" stroke-width="1.5"/>
 
-  <path d="M0 190 Q300 20 600 150 T1200 65"
-        fill="none" stroke="#FFFFFF" stroke-opacity=".4" stroke-width="3"/>
+    <g fill="#FFFFFF" opacity=".8">
+      <circle cx="145" cy="95" r="3"/><circle cx="190" cy="130" r="2"/>
+      <circle cx="1010" cy="70" r="3"/><circle cx="1060" cy="105" r="2"/>
+      <circle cx="940" cy="220" r="2.5"/><circle cx="270" cy="225" r="2"/>
+    </g>
 
-  <path d="M0 215 Q300 45 600 175 T1200 90"
-        fill="none" stroke="#FFFFFF" stroke-opacity=".2" stroke-width="2"/>
-
-  <text x="600" y="95" text-anchor="middle"
-        font-family="Arial" font-size="22"
-        letter-spacing="7" fill="#FFFFFF">
-    PYTHON • DJANGO • SQLITE
-  </text>
-
-  <text x="600" y="145" text-anchor="middle"
-        font-family="Arial" font-size="36"
-        font-weight="bold" fill="#FFFFFF">
-    EMPLOYEE MANAGEMENT SYSTEM
-  </text>
-
-  <text x="600" y="185" text-anchor="middle"
-        font-family="Arial" font-size="15"
-        letter-spacing="3" fill="#FFFFFF">
-    MANAGE • ORGANIZE • SIMPLIFY
-  </text>
+    <text x="600" y="103" text-anchor="middle" fill="#E0F2FE"
+          font-family="Arial, Helvetica, sans-serif" font-size="19"
+          font-weight="600" letter-spacing="7">PYTHON  •  DJANGO  •  SQLITE</text>
+    <text x="600" y="163" text-anchor="middle" fill="#FFFFFF"
+          font-family="Arial, Helvetica, sans-serif" font-size="43"
+          font-weight="700" letter-spacing="1">EMPLOYEE MANAGEMENT SYSTEM</text>
+    <text x="600" y="207" text-anchor="middle" fill="#E0E7FF"
+          font-family="Arial, Helvetica, sans-serif" font-size="17"
+          font-weight="500" letter-spacing="4">MANAGE  •  ORGANIZE  •  SIMPLIFY</text>
+  </g>
 </svg>
