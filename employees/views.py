@@ -3,11 +3,15 @@ from . models import Department, Employee
 from . forms import EmployeeForm 
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST
+from django.contrib.auth.decorators import login_required, permission_required
 
 
 # Create your views here.
 
 # View to display the details of a specific employee based on their ID. It retrieves the employee object from the database and renders the 'employee_detail.html' template with the employee's information. If the employee does not exist, it renders a 404 error page.
+
+@login_required
+@permission_required('employees.view_employee', raise_exception=True)
 def employee_detail(request, id):
     # try:
     employee = get_object_or_404(Employee, id=id, is_deleted=False)  # Fetch the employee object with the given ID, ensuring it is not marked as deleted.
@@ -25,6 +29,8 @@ def employee_detail(request, id):
     
     
 # Add Employee
+@login_required
+@permission_required('employees.add_employee', raise_exception=True)
 def employee_add(request):
     # departments = Department.objects.all()
     # managers = Employee.objects.all()
@@ -51,6 +57,8 @@ def employee_add(request):
 
 
 # Edit Employee
+@login_required
+@permission_required('employees.change_employee', raise_exception=True)
 def employee_edit(request, id):
     employee = get_object_or_404(Employee, id=id, is_deleted=False)
 
@@ -88,6 +96,8 @@ def employee_edit(request, id):
 
 
 # Soft Delete Employee using AJAX
+@login_required
+@permission_required('employees.delete_employee', raise_exception=True)
 @require_POST
 def employee_delete(request, id):
 
