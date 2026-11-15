@@ -64,8 +64,7 @@
         {% endif %}
 
 
-
-
+        <!-- if user has permission to add employee -->
         {% if perms.employees.add_employee %}
             <div class="add-employee-container">
                 <a href="{% url 'employee_add' %}" class="add-employee-btn">
@@ -141,6 +140,7 @@
                         <td>
                             <div class="action-buttons">
                                 <!-- View Employee -->
+                                <!-- if user has permission to view employee -->
                                 {% if perms.employees.view_employee %}
                                     <a href="{% url 'employee_detail' id=emp.id %}" class="action-btn view-btn" aria-label="View Employee" title="View Employee">
                                         <i class="fa fa-eye"></i>
@@ -148,6 +148,7 @@
                                 {% endif %}
 
                                 <!-- Edit Employee -->
+                                <!-- if user has permission to edit employee -->
                                 {% if perms.employees.change_employee %}
                                     <a href="{% url 'employee_edit' id=emp.id %}" class="action-btn edit-btn" aria-label="Edit Employee" title="Edit Employee">
                                         <i class="fa fa-edit"></i>
@@ -155,6 +156,7 @@
                                 {% endif %}
 
                                 <!-- Delete Employee -->
+                                <!-- if user has permission to delete employee -->
                                 {% if perms.employees.delete_employee %}
                                     <button type="button" class="action-btn delete-btn" data-id="{{ emp.id }}" data-name="{{ emp.full_name }}" data-url="{% url 'employee_delete' id=emp.id %}" aria-label="Delete Employee" title="Delete Employee">
                                         <i class="fa fa-trash"></i>
