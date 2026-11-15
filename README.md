@@ -1,3 +1,12 @@
+<p align="center">
+  <img src="assets/readme-banner.svg"
+       alt="Employee Management System"
+       width="100%">
+</p>
+
+<br>
+
+
 # Employee Management System
 
 A web-based **Employee Management System** developed using **Python and Django** to manage employee records, user authentication, and employee information through a structured and user-friendly web interface.
