@@ -66,12 +66,14 @@
 
 
 
-        <div class="add-employee-container">
-            <a href="{% url 'employee_add' %}" class="add-employee-btn">
-                <i class="fa fa-plus"></i>
-                Add Employee
-            </a>
-        </div>
+        {% if perms.employees.add_employee %}
+            <div class="add-employee-container">
+                <a href="{% url 'employee_add' %}" class="add-employee-btn">
+                    <i class="fa fa-plus"></i>
+                    Add Employee
+                </a>
+            </div>
+        {% endif %}
 
         <div class="table-container">
             <table class="employee-table">
@@ -138,21 +140,26 @@
                         </td>
                         <td>
                             <div class="action-buttons">
-
                                 <!-- View Employee -->
-                                <a href="{% url 'employee_detail' id=emp.id %}" class="action-btn view-btn" aria-label="View Employee" title="View Employee">
-                                    <i class="fa fa-eye"></i>
-                                </a>
+                                {% if perms.employees.view_employee %}
+                                    <a href="{% url 'employee_detail' id=emp.id %}" class="action-btn view-btn" aria-label="View Employee" title="View Employee">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                {% endif %}
 
                                 <!-- Edit Employee -->
-                                <a href="{% url 'employee_edit' id=emp.id %}" class="action-btn edit-btn" aria-label="Edit Employee" title="Edit Employee">
-                                    <i class="fa fa-edit"></i>
-                                </a>
+                                {% if perms.employees.change_employee %}
+                                    <a href="{% url 'employee_edit' id=emp.id %}" class="action-btn edit-btn" aria-label="Edit Employee" title="Edit Employee">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                {% endif %}
 
                                 <!-- Delete Employee -->
-                                <button type="button" class="action-btn delete-btn" data-id="{{ emp.id }}" data-name="{{ emp.full_name }}" data-url="{% url 'employee_delete' id=emp.id %}" aria-label="Delete Employee" title="Delete Employee">
-                                    <i class="fa fa-trash"></i>
-                                </button>
+                                {% if perms.employees.delete_employee %}
+                                    <button type="button" class="action-btn delete-btn" data-id="{{ emp.id }}" data-name="{{ emp.full_name }}" data-url="{% url 'employee_delete' id=emp.id %}" aria-label="Delete Employee" title="Delete Employee">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                {% endif %}
 
                             </div>
                         </td>
